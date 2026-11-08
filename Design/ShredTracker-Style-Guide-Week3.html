@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShredTracker Style Guide</title>
+    <style>
+        /* Main page */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #f5f7fa;
+            color: #172b3a;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 { font-size: 32px; }
+        h2 { font-size: 24px; }
+        h3 { font-size: 18px; }
+
+        section {
+            background-color: white;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Color samples */
+        .color {
+            display: inline-block;
+            width: 120px;
+            padding: 15px;
+            margin: 5px;
+            border: 1px solid #777777;
+            text-align: center;
+        }
+
+        .background-color { background-color: #f5f7fa; }
+        .card-color { background-color: #cbd5df; }
+        .blue-color { background-color: #2457c5; color: white; }
+        .text-color { background-color: #172b3a; color: white; }
+
+        /* Navigation and buttons */
+        nav {
+            background-color: #cbd5df;
+            padding: 15px;
+        }
+
+        a { color: #2457c5; }
+        nav a { display: inline-block; margin-right: 15px; }
+
+        button {
+            background-color: #2457c5;
+            color: white;
+            border: 1px solid #2457c5;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 5px 5px 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: #194397; }
+        .cancel { background-color: white; color: #2457c5; }
+        .cancel:hover { background-color: #eeeeee; }
+        .delete { background-color: #b42318; border-color: #b42318; }
+        .delete:hover { background-color: #8f1c13; }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid #2457c5;
+            outline-offset: 3px;
+        }
+
+        /* Form fields */
+        label { display: block; margin-top: 10px; }
+        input, select {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 320px;
+            padding: 10px;
+            border: 1px solid #777777;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .warning { color: #854d0e; background-color: #fef9c3; padding: 10px; }
+
+        .error { color: #b42318; }
+        .success { color: #166534; }
+        .invalid { border: 2px solid #b42318; }
+
+        /* Dashboard card and progress bar */
+        .card {
+            background-color: #cbd5df;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 320px;
+        }
+
+        .number { font-size: 28px; font-weight: bold; }
+        .progress-bar { background-color: #e0e6ed; height: 20px; }
+        .progress-fill { background-color: #2457c5; width: 25%; height: 100%; }
+        .chart { width: 100%; max-width: 400px; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>ShredTracker Style Guide</h1>
+    <p>Benjamin Escobar</p>
+    <section>
+        <h2>Colors</h2>
+        <div class="color background-color">Background<br>#F5F7FA</div>
+        <div class="color card-color">Cards<br>#CBD5DF</div>
+        <div class="color blue-color">Buttons<br>#2457C5</div>
+        <div class="color text-color">Text<br>#172B3A</div>
+        <p class="success">Green (#166534): saved messages.</p>
+        <p class="error">Red (#B42318): errors and delete buttons.</p>
+    </section>
+
+    <section>
+        <h2>Fonts</h2>
+        <p>Font: Arial</p>
+        <h1>Page heading - 32px</h1>
+        <h2>Section heading - 24px</h2>
+        <h3>Card heading - 18px</h3>
+        <p>Regular text - 16px</p>
+        </section>
+
+    <section>
+        <h2>Navigation</h2>
+        <nav aria-label="Style guide examples">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#workout">Log Workout</a>
+            <a href="#weight">Weight Progress</a>
+            <a href="#routines">Saved Routines</a>
+        </nav>
+        </section>
+
+    <section>
+        <h2>Buttons</h2>
+        <button type="button">Save Workout</button>
+        <button type="button" class="cancel">Cancel</button>
+        <button type="button" class="delete">Delete</button>
+        </section>
+
+    <section id="workout">
+        <h2>Form Fields</h2>
+        <label for="exercise">Exercise</label>
+        <input id="exercise" type="text" value="Bench Press">
+
+        <label for="weight-lifted">Weight Lifted (lb)</label>
+        <input id="weight-lifted" type="number" min="0" value="100">
+
+        <label for="reps">Repetitions</label>
+        <input id="reps" class="invalid" type="number" min="1" step="1" value="0" aria-invalid="true" aria-describedby="reps-error">
+        <p id="reps-error" class="error">Enter a whole number greater than zero.</p>
+        <p class="success">Workout saved.</p>
+        </section>
+
+    <section id="dashboard">
+        <h2>Dashboard Card</h2>
+        <div class="card">
+            <h3>Workout Volume</h3>
+            <p class="number">2,400 lb</p>
+            <p>20% higher than the previous session</p>
+        </div>
+        </section>
+
+    <section id="weight">
+        <h2>Weight Progress</h2>
+        <p>Starting weight: 190 lb | Current weight: 185 lb | Goal: 170 lb</p>
+        <div class="progress-bar" role="progressbar" aria-label="Weight goal progress" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-fill"></div>
+        </div>
+        <p>25% complete | 5 lb lost | 15 lb remaining</p>
+        <h3>Weight Chart</h3>
+        <!-- Simple chart example. The app will use saved weight entries. -->
+        <svg class="chart" viewBox="0 0 400 180" role="img" aria-label="Example: weight drops from 190 pounds on September 20 to 185 pounds on October 25">
+            <line x1="50" y1="25" x2="50" y2="140" stroke="#777777" />
+            <line x1="50" y1="140" x2="370" y2="140" stroke="#777777" />
+            <polyline points="50,30 150,60 250,90 370,135" fill="none" stroke="#2457c5" stroke-width="3" />
+            <circle cx="50" cy="30" r="4" fill="#2457c5" />
+            <circle cx="150" cy="60" r="4" fill="#2457c5" />
+            <circle cx="250" cy="90" r="4" fill="#2457c5" />
+            <circle cx="370" cy="135" r="4" fill="#2457c5" /> 
+            <text x="0" y="35" font-size="14" fill="#172b3a">190 lb</text>
+            <text x="0" y="140" font-size="14" fill="#172b3a">185 lb</text>
+            <text x="50" y="165" font-size="14" fill="#172b3a">Sep 20</text>
+            <text x="325" y="165" font-size="14" fill="#172b3a">Oct 25</text>
+        </svg>
+        </section>
+    <section id="routines">
+        <h2>Saved Routines - Stretch Feature</h2>
+        <p>Uses the same colors, fonts, buttons, and fields.</p>
+
+        <h3>Routine Form</h3>
+        <label for="routine-name">Routine Name</label>
+        <input id="routine-name" type="text" maxlength="100" value="Upper Body">
+
+        <label for="routine-exercise">Exercise</label>
+        <select id="routine-exercise">
+            <option>Bench Press</option>
+            <option>Squat</option>
+        </select>
+
+        <label for="planned-sets">Planned Sets</label>
+        <input id="planned-sets" type="number" min="1" step="1" value="3">
+
+        <label for="planned-reps">Planned Repetitions</label>
+        <input id="planned-reps" type="number" min="1" step="1" value="10">
+
+        <label for="planned-weight">Planned Weight (lb)</label>
+        <input id="planned-weight" type="number" min="0" max="9999.99" step="0.01" value="100">
+
+        <p>
+            <button type="button" class="cancel">Add Exercise</button>
+            <button type="button" class="delete">Remove</button>
+        </p>
+        <button type="button">Save Routine</button>
+        <button type="button" class="cancel">Cancel</button>
+
+        <h3>Saved Routine</h3>
+        <div class="card">
+            <h3>Upper Body</h3>
+            <ul>
+                <li>Bench Press: 3 sets of 10 reps at 100 lb</li>
+            </ul>
+            <button type="button">Use Routine</button>
+            <button type="button" class="cancel">Edit</button>
+            <button type="button" class="delete">Delete</button>
+        </div>
+
+        <h3>Load a Routine</h3>
+        <label for="saved-routine">Saved Routine</label>
+        <select id="saved-routine">
+            <option>Select a routine</option>
+            <option>Upper Body</option>
+        </select>
+        <button type="button">Load Routine</button>
+
+        <h3>Messages</h3>
+        <p class="success">Routine saved.</p>
+        <p class="error">Add at least one exercise.</p>
+        <p class="warning">Loading a routine will replace the sets in this form.</p>
+        <p>No saved routines yet.</p>
+        <p>Delete this routine? Saved workouts will remain.</p>
+        <button type="button" class="delete">Delete Routine</button>
+        <button type="button" class="cancel">Cancel</button>
+    </section>
+</body>
+</html>
